@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+{% load static %}
+<!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'myapp/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'myapp/lib/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'myapp/css/style.css'%}" rel="stylesheet">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Login</title>
+</head>
+<body>
+
+<center>
+    <h1 ><font color="#366092">Personality Prediction</font></h1>
+</center>
+     <!-- Header -->
+  <header id="header">
+    <div class="container">
+
+
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="{%url 'index'%}">Home</a></li>
+          <li><a href="{%url 'index'%}">About Us</a></li>
+          <li><a href="{%url 'index'%}">Features</a></li>
+          <li><a href="{%url 'index'%}">Team</a></li>
+          <li class="menu-has-children"><a href="">Login</a>
+            <ul>
+                <li><a href="{% url 'admin_login' %}">Admin</a></li>
+                <li><a href="{% url 'doctor_login' %}">Doctor</a></li>
+                <li><a href="{% url 'user_login' %}">User</a></li>
+            </ul>
+          </li>
+          <li><a href="{%url 'index'%}">Contact Us</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+
+
+    </div>
+  </header>
+  <!-- #header -->
+<center>
+     <h2><font color="#366092">Doctor Login</font></h2>
+        <img src="{% static 'myapp/images/person.png'%}" width="150" height="150">
+        <form name="frm" action="{% url 'doctor_login' %}"
+              method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td> User Name </td>
+                    <td> <input type="text" name="uname"> </td>
+                </tr>
+                <tr>
+                    <td>  Password </td>
+                    <td> <input type="password" name="passwd"> </td>
+                </tr>
+
+                <tr>
+                    <td>  </td>
+                    <td> <input type="submit" name="s1" value="Login"> <input type="reset" name="r1" value="Reset"> </td>
+
+                </tr>
+
+            </table>
+            {{msg}}
+            <br/>
+        <a href="{% url 'doctor_details_add' %}">New Doctor</a></h1>
+        </form>
+</center>
+</body>
+</html>

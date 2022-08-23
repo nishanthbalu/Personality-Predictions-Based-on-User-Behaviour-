@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+{% load static %}
+<style>
+    ul#menu {
+        padding: 0
+    }
+    ul#menu li {
+        display: inline;
+    }
+    ul#menu li a {
+        background-color: #5aa5e2;
+        color: #30352f;
+        padding: 5px 10px;
+        text-decoration: none;
+        font: 700 15px cursive;
+        border-radius: 4px 4px 0 0;
+    }
+    ul#menu li a:hover {
+        background-color: #30352f;
+        color: #5aa5e2;
+        font: 700 18px fantasy;
+        border-radius: 4px 4px 0 0;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Ask Question</title>
+</head>
+<body>
+
+<center>
+    <h1 ><font color="#366092">Personality Prediction</font></h1>
+    <ul id="menu">
+        <li><a href="{% url 'user_home' %}">Home</a></li>
+        <li><a href="{% url 'user_posts_view' %}">Posts</a></li>
+        <li><a href="{% url 'user_question_view' %}">Ask Doctor</a></li>
+        <li><a href="{% url 'user_settings' %}">Settings</a></li>
+        <li><a href="{% url 'user_login' %}">Logout</a></li>
+    </ul>
+
+    <h2><font color="#366092"> Ask Question </font></h2>
+
+    <form name="frm" action="{% url 'user_question_add' %}" method="post">
+            {% csrf_token %}
+        <table>
+	        <tr>
+	            <td>Question</td>
+                <td><textarea  name="msg" placeholder="Enter message" required="required"></textarea></td>
+	        </tr>
+            <tr>
+	            <td></td>
+	            <td><button type="submit" >SUBMIT</button></td>
+	        </tr>
+	    </table>
+    </form>
+    {{msg}}
+</center>
+</body>
+</html>

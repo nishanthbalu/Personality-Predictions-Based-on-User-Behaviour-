@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'myapp/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'myapp/lib/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'myapp/css/style.css'%}" rel="stylesheet">
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+</head>
+<body>
+<center>
+    <h1 ><font color="#30352f">Personality Prediction</font></h1>
+
+    <!-- Header -->
+  <header id="header">
+    <div class="container">
+
+
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="{%url 'index'%}">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#team">Team</a></li>
+          <li class="menu-has-children"><a href="">Login</a>
+            <ul>
+              <li><a href="{% url 'admin_login' %}">Admin</a></li>
+              <li><a href="{% url 'user_login' %}">User</a></li>
+              </ul>
+          </li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+
+      <nav class="nav social-nav pull-right d-none d-lg-inline">
+        <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+      </nav>
+    </div>
+  </header>
+  <!-- #header -->
+<form>
+         <h2 ><font color="#30352f">Contact Us</font></h2>
+        <img src="{% static 'myapp/images/contact_us.png'%}" width="400" height="200">
+    </form>
+</center>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+{% load static %}
+<!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'myapp/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'myapp/lib/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'myapp/css/style.css'%}" rel="stylesheet">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Set Add</title>
+</head>
+<body>
+
+<center>
+    <h1 ><font color="#30352f">Personality Prediction</font></h1>
+        <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="{% url 'admin_home' %}">Home</a></li>
+          <li><a href="{% url 'admin_user_details_view' %}">Users</a></li>
+          <li class="menu-has-children"><a href="{% url 'admin_settings' %}">Settings</a>
+            <ul>
+                <li><a href="{% url 'admin_category_master_view' %}">Category</a></li>
+                <li><a href="{% url 'admin_category_map_view' %}">Category Map</a></li>
+                <li><a href="{% url 'admin_data_set_view' %}">Data Set</a></li>
+                <li><a href="{% url 'admin_label_master_view' %}">Label</a></li>
+                <li><a href="{% url 'admin_changepassword' %}">Change Password</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'admin_login' %}">Logout</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+
+
+    </div>
+  </header>
+  <!-- #header -->
+
+    <h2><font color="#366092">Data Set Add</font></h2>
+
+    <form name="frm" action="{% url 'admin_data_set_add' %}" method="post">
+            {% csrf_token %}
+        <table>
+            <tr>
+            <td>Label</td>
+	        <td>
+             	<select class="form-control" id="label_id"  name="label_id">
+		            {% for  c in label_list%}
+		        	<option value="{{c.id}}">{{c.label}}</option>
+		            {% endfor %}
+		        </select>
+			</td>
+            </tr>
+
+	        <tr>
+	            <td>Words</td>
+	            <td><input type="text"  name="fpath" placeholder="Enter  words" required="required"></td>
+	        </tr>
+            <tr>
+	            <td></td>
+	            <td><button type="submit" >SUBMIT</button></td>
+	        </tr>
+	    </table>
+        {{msg}}
+    </form>
+</center>
+</body>
+</html>
